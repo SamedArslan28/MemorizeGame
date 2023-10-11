@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
-   @State var emojis = ["🐭","🐒","🥰","🤒","🤕","🐭","🐒","🥰","🤒","🐭","🐒","🥰"]
+    @State var emojis = ["🚗", "✈️", "🚆","🛳️","🚚","🚗", "✈️", "🚆","🛳️","🚚"]
+    @State var cardColor = Color(.blue)
     
     var body: some View {
         LazyVGrid(columns:[GridItem(.adaptive(minimum: 70))]){
             
             ForEach(emojis.indices, id: \.self){ index in
-                CardView(content: emojis[index],color: .red)
+                CardView(content: emojis[index],color: $cardColor)
                     
                     .frame(width: 75,height: 90)
             }
@@ -26,9 +27,9 @@ struct ContentView: View {
         Spacer()
         
         HStack{
-            ThemeView(image: "car.fill",buttonName: "Vehicle")
-            ThemeView(image: "ant.fill",buttonName: "Halloween")
-            ThemeView(image: "keyboard.fill",buttonName: "Keyboard")
+            ThemeView(image: "car.fill",buttonName: "Vehicle", themeArray: $emojis, cardColor: $cardColor)
+            ThemeView(image: "ant.fill",buttonName: "Animals", themeArray: $emojis, cardColor: $cardColor)
+            ThemeView(image: "keyboard.fill",buttonName: "Sports", themeArray: $emojis, cardColor: $cardColor)
             
         }
         

@@ -11,7 +11,7 @@ struct CardView: View {
     // get cards arrays to shuffle them and show them
     let content :String
     @State private var isFaceUp = true
-    @State  var color : Color
+    @Binding  var color : Color
     
     var body: some View {
         
@@ -20,7 +20,7 @@ struct CardView: View {
             Group{
                 base
                     .fill(.white)
-                    .strokeBorder(.orange, lineWidth: 4)
+                    .strokeBorder(color, lineWidth: 4)
                 Text(content)
                     .font(.largeTitle)
                 
@@ -45,5 +45,5 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(content: "🦁", color: .orange)
+    CardView(content: "🦁", color: .constant(.orange))
 }

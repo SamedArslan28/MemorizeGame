@@ -11,6 +11,8 @@
 		61E913972AD58B3B00BA5CCF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E913962AD58B3B00BA5CCF /* ContentView.swift */; };
 		61E913992AD58B3D00BA5CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61E913982AD58B3D00BA5CCF /* Assets.xcassets */; };
 		61E9139C2AD58B3D00BA5CCF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61E9139B2AD58B3D00BA5CCF /* Preview Assets.xcassets */; };
+		61E913A32AD58BB300BA5CCF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E913A22AD58BB300BA5CCF /* CardView.swift */; };
+		61E913A52AD59A2A00BA5CCF /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E913A42AD59A2A00BA5CCF /* ThemeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		61E913962AD58B3B00BA5CCF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		61E913982AD58B3D00BA5CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61E9139B2AD58B3D00BA5CCF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		61E913A22AD58BB300BA5CCF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		61E913A42AD59A2A00BA5CCF /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				61E913942AD58B3B00BA5CCF /* MemorizeGameApp.swift */,
 				61E913962AD58B3B00BA5CCF /* ContentView.swift */,
+				61E913A42AD59A2A00BA5CCF /* ThemeView.swift */,
+				61E913A22AD58BB300BA5CCF /* CardView.swift */,
 				61E913982AD58B3D00BA5CCF /* Assets.xcassets */,
 				61E9139A2AD58B3D00BA5CCF /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61E913A52AD59A2A00BA5CCF /* ThemeView.swift in Sources */,
 				61E913972AD58B3B00BA5CCF /* ContentView.swift in Sources */,
+				61E913A32AD58BB300BA5CCF /* CardView.swift in Sources */,
 				61E913952AD58B3B00BA5CCF /* MemorizeGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

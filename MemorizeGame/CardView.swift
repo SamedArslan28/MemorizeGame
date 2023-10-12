@@ -36,6 +36,7 @@ struct CardView: View {
                 .opacity(card.isFaceUp ? 0 : 1)
             
         }
+       
         
         
         
@@ -43,5 +44,11 @@ struct CardView: View {
         
         
     }
+    
+    
 }
 
+
+#Preview {
+    CardView(MemoryGame<String>.Card(content: "👻"))
+}

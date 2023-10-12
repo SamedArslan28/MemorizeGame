@@ -9,41 +9,39 @@ import SwiftUI
 
 struct CardView: View {
     // get cards arrays to shuffle them and show them
-    let content :String
-    @State private var isFaceUp = true
-    @Binding  var color : Color
+    let card: MemoryGame<String>.Card
     
+    init(_ card: MemoryGame<String>.Card) {
+        self.card = card
+    }
     var body: some View {
+        
         
         ZStack{
             let base =  RoundedRectangle(cornerRadius: 10)
             Group{
                 base
                     .fill(.white)
-                    .strokeBorder(color, lineWidth: 4)
-                Text(content)
-                    .font(.largeTitle)
+                    .strokeBorder(.orange, lineWidth: 4)
+                Text(card.content)
+                    .font(.system(size: 200))
+                    .minimumScaleFactor(0.01)
+                    .aspectRatio(1, contentMode: .fit)
                 
             }
-            .opacity(isFaceUp ? 0 : 1 )
+            .opacity(card.isFaceUp ? 1 : 0 )
             
             base
-                .fill(color)
-                .opacity(isFaceUp ? 1 : 0)
+                .fill(.orange)
+                .opacity(card.isFaceUp ? 0 : 1)
             
         }
         
         
         
-        .onTapGesture { withAnimation{ isFaceUp
-            .toggle()}
-            
-        }
+        
         
         
     }
 }
 
-#Preview {
-    CardView(content: "🦁", color: .constant(.orange))
-}

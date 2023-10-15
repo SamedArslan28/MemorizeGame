@@ -32,15 +32,7 @@ struct EmojiMemoryGameView: View {
         
         Spacer()
         
-        
-//        HStack{
-//            ThemeView(image: "car.fill",buttonName: "Vehicle", themeArray: $emojis, cardColor: $cardColor)
-//            ThemeView(image: "ant.fill",buttonName: "Animals", themeArray: $emojis, cardColor: $cardColor)
-//            ThemeView(image: "keyboard.fill",buttonName: "Sports", themeArray: $emojis, cardColor: $cardColor)
-//            
-//        }
-//        
-        
+    
         Button("Shuffle",action: viewModel.shuffle)
     }
 }

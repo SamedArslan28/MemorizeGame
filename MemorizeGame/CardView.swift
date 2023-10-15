@@ -14,6 +14,7 @@ struct CardView: View {
     init(_ card: MemoryGame<String>.Card) {
         self.card = card
     }
+    
     var body: some View {
         
         
@@ -36,7 +37,8 @@ struct CardView: View {
                 .opacity(card.isFaceUp ? 0 : 1)
             
         }
-       
+            .opacity(card.isFaceUp || !card.isMatched ? 1 : 0 )
+            
         
         
         

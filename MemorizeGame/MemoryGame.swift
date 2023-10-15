@@ -23,26 +23,47 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         
     }
     
-     mutating func chooseCard(_ card: Card){
-        let choosedIndex = index(of: card)
-        cards[choosedIndex].isFaceUp.toggle()
+    
+    var indexOfOneAndOnlyFaceUpCard: Int?{
         
+        get{
+            return cards.indices.filter {index in cards[index].isFaceUp}.only
+        }
+        // given index is equals to some index in the array make it face up
+        set{
+            cards.indices.forEach {
+                cards[$0].isFaceUp = (newValue == $0)
+               
+            }
+           
+        }
         
     }
     
-    func index(of card: Card) -> Int{
-        for index in cards.indices{
-            if cards[index].id == card.id{
-                return index
+    mutating func chooseCard(_ card: Card){
+        if let chosenIndex = cards.firstIndex(where: {$0.id == card.id}){
+            if !cards[chosenIndex].isFaceUp && !cards[chosenIndex].isMatched{
+                //takes first clicked item initilize the indexOfOneAndOnlyFaceUpCard
+                if let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard{
+                    if cards[chosenIndex].content == cards[potentialMatchIndex].content{
+                        cards[chosenIndex].isMatched = true
+                        cards[potentialMatchIndex].isMatched = true
+                    }
+                }else{
+                    
+                    indexOfOneAndOnlyFaceUpCard = chosenIndex
+                }
+   
+                cards[chosenIndex].isFaceUp = true
             }
         }
-        
-        return 0 //FIXME: bogus!
-        
     }
+    
+    
     
     
     mutating func shuffle(){
+        
         cards.shuffle()
         
     }
@@ -50,10 +71,17 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     struct Card: Equatable,Identifiable{
         var id = UUID()
         
-        var isFaceUp = true
+        var isFaceUp = false
         var isMatched = false
         let content: CardContent
         
     }
     
+}
+
+
+extension Array{
+    var only: Element?{
+        count == 1 ? first : nil
+    }
 }

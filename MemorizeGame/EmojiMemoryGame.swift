@@ -45,3 +45,10 @@ class EmojiMemoryGame:ObservableObject{
     }
     
 }
+
+#Preview {
+    
+    EmojiMemoryGameView(viewModel: EmojiMemoryGame())
+    
+}
+

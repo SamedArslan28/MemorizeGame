@@ -1,0 +1,69 @@
+//
+//  AspectVGrid.swift
+//  MemorizeGame
+//
+//  Created by Abdulsamed Arslan on 15.10.2023.
+//
+
+import SwiftUI
+
+struct AspectVGrid<Item: Identifiable, ItemView: View>: View {
+    
+    var items: [Item]
+    var aspectRatio: CGFloat = 1
+    var content :(Item) -> ItemView
+    
+    init(_ items: [Item], aspectRatio: CGFloat, content: @escaping (Item) -> ItemView) {
+        self.items = items
+        self.aspectRatio = aspectRatio
+        self.content = content
+    }
+    
+    
+    var body: some View{
+        
+        GeometryReader{ geometry in
+            let gridItemSize = gridItemWidthThatFits(count: items.count, size: geometry.size, atAspetRatio: aspectRatio)
+            
+            LazyVGrid(columns:[GridItem(.adaptive(minimum: gridItemSize), spacing:0)],spacing: 0){
+                
+                ForEach(items){ item in
+                    
+                    content(item)
+                        .aspectRatio(aspectRatio, contentMode: .fit)
+                    
+                    
+                        
+                    
+                }
+            }
+            
+        }
+    }
+}
+extension AspectVGrid{
+    
+    func gridItemWidthThatFits(count: Int, size: CGSize, atAspetRatio aspectRatio: CGFloat)-> CGFloat{
+        
+        var columnCount = 1.0
+        let count = CGFloat(count)
+        
+        repeat{
+            
+            let width = size.width / CGFloat(columnCount)
+            let height = width / aspectRatio
+            
+            let rowCount = (count / columnCount).rounded(.up)
+            if rowCount * height < size.height {
+                return (size.width / CGFloat(columnCount)).rounded(.down)
+            }
+            
+            
+            columnCount += 1
+        }while columnCount < count
+        
+        
+        
+        return min(size.width / count, size.height * aspectRatio).rounded(.down)
+    }
+}

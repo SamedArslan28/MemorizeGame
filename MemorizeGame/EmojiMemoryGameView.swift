@@ -9,30 +9,30 @@ import SwiftUI
 
 struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
-    
-    
+
+
     var body: some View {
         let aspectRatio: CGFloat = 2/3
-        
+
         AspectVGrid(viewModel.cards, aspectRatio: aspectRatio){ card in
-            
+
             CardView(card)
-                
+
                 .padding(4)
                 .animation(.default, value: viewModel.cards)
                 .onTapGesture {
                     viewModel.choose(card)
                     
                 }
-            
+
         }
         .padding()
-        
+
         Spacer()
-        
-        
+
+
         Button("Shuffle",action: viewModel.shuffle)
-        
+
     }
 }
 
@@ -43,9 +43,9 @@ struct EmojiMemoryGameView: View {
 
 
 #Preview {
-    
+
     EmojiMemoryGameView(viewModel: EmojiMemoryGame())
-    
+
 }
 
 

@@ -8,35 +8,36 @@
 import SwiftUI
 
 struct CardView: View {
-    // get cards arrays to shuffle them and show them
-    let card: MemoryGame<String>.Card
     
-    init(_ card: MemoryGame<String>.Card) {
+    
+    typealias Card = MemoryGame<String>.Card
+    // get cards arrays to shuffle them and show them
+    let card: Card
+    
+    init(_ card: Card) {
         self.card = card
     }
     
+   
     var body: some View {
         
         
-        ZStack{
-            let base =  RoundedRectangle(cornerRadius: 10)
-            Group{
-                base
-                    .fill(.white)
-                    .strokeBorder(.orange, lineWidth: 4)
+        Pie(endAngle: .degrees(240))
+            .foregroundStyle(.orange)
+            .opacity(0.5)
+            .overlay {
+                
+                
                 Text(card.content)
                     .font(.system(size: 200))
                     .minimumScaleFactor(0.01)
+                    .multilineTextAlignment(.center)
                     .aspectRatio(1, contentMode: .fit)
+                    .padding(7)
                 
-            }
-            .opacity(card.isFaceUp ? 1 : 0 )
-            
-            base
-                .fill(.orange)
-                .opacity(card.isFaceUp ? 0 : 1)
-            
-        }
+                
+            }.padding(5)
+            .cardify(isFaceUp: card.isFaceUp)
             .opacity(card.isFaceUp || !card.isMatched ? 1 : 0 )
             
         
@@ -51,6 +52,14 @@ struct CardView: View {
 }
 
 
-#Preview {
-    CardView(MemoryGame<String>.Card(content: "👻"))
+
+
+struct CardView_Previews: PreviewProvider{
+    typealias Card = CardView.Card
+    static var previews: some View{
+        CardView(Card(content: "👻"))
+    }
 }
+
+
+

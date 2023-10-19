@@ -31,10 +31,6 @@ struct AspectVGrid<Item: Identifiable, ItemView: View>: View {
                     
                     content(item)
                         .aspectRatio(aspectRatio, contentMode: .fit)
-                    
-                    
-                        
-                    
                 }
             }
             

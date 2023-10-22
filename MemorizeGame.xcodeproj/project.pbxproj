@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6116E9932AE53B98005DFA8A /* FlyingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116E9922AE53B98005DFA8A /* FlyingNumber.swift */; };
 		6154A3FC2ADC666200B62046 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3FB2ADC666200B62046 /* AspectVGrid.swift */; };
 		6175EF352AD7543D008BB9CD /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6175EF342AD7543D008BB9CD /* MemoryGame.swift */; };
 		6175EF372AD7556D008BB9CD /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6175EF362AD7556D008BB9CD /* EmojiMemoryGame.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6116E9922AE53B98005DFA8A /* FlyingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingNumber.swift; sourceTree = SOURCE_ROOT; };
 		6154A3FB2ADC666200B62046 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		6175EF342AD7543D008BB9CD /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		6175EF362AD7556D008BB9CD /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 		61E913932AD58B3B00BA5CCF /* MemorizeGame */ = {
 			isa = PBXGroup;
 			children = (
+				6116E9922AE53B98005DFA8A /* FlyingNumber.swift */,
 				61E60CAC2ADD951700708194 /* Cardify.swift */,
 				61E60CAA2ADD8EAC00708194 /* Pie.swift */,
 				61E913942AD58B3B00BA5CCF /* MemorizeGameApp.swift */,
@@ -157,6 +160,7 @@
 			files = (
 				61E913972AD58B3B00BA5CCF /* EmojiMemoryGameView.swift in Sources */,
 				61E913A32AD58BB300BA5CCF /* CardView.swift in Sources */,
+				6116E9932AE53B98005DFA8A /* FlyingNumber.swift in Sources */,
 				61E60CAD2ADD951700708194 /* Cardify.swift in Sources */,
 				6154A3FC2ADC666200B62046 /* AspectVGrid.swift in Sources */,
 				6175EF352AD7543D008BB9CD /* MemoryGame.swift in Sources */,

@@ -11,7 +11,8 @@ import Foundation
 struct MemoryGame<CardContent> where CardContent: Equatable {
     //making this object set is private but looking is public
     private(set) var cards: [Card]
-    
+    private(set) var score = 0
+
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent){
         cards = []
         
@@ -48,6 +49,14 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     if cards[chosenIndex].content == cards[potentialMatchIndex].content{
                         cards[chosenIndex].isMatched = true
                         cards[potentialMatchIndex].isMatched = true
+                        score += 2
+                    }else{
+                        if cards[chosenIndex].hasBeenSeen{
+                            score -= 1
+                        }
+                        if cards[potentialMatchIndex].hasBeenSeen{
+                            score -= 1
+                        }
                     }
                 }else{
                     
@@ -71,8 +80,15 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     struct Card: Equatable,Identifiable{
         
         var id = UUID()
-        
-        var isFaceUp = true
+        var hasBeenSeen = false
+
+        var isFaceUp = false {
+            didSet{
+                if oldValue && !isFaceUp{
+                    hasBeenSeen = true
+                }
+            }
+        }
         var isMatched = false
         let content: CardContent
         

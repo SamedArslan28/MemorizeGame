@@ -34,7 +34,9 @@ struct CardView: View {
                     .multilineTextAlignment(.center)
                     .aspectRatio(1, contentMode: .fit)
                     .padding(7)
-                
+                    .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0 ))
+                    .animation(.spin(duration: 1), value: card.isMatched)
+
                 
             }.padding(5)
             .cardify(isFaceUp: card.isFaceUp)
@@ -59,6 +61,13 @@ struct CardView_Previews: PreviewProvider{
     static var previews: some View{
         CardView(Card(content: "👻"))
     }
+}
+
+extension Animation{
+    static func spin(duration: TimeInterval = 1) -> Animation{
+        .linear(duration: duration).repeatForever(autoreverses: false)
+    }
+
 }
 
 
